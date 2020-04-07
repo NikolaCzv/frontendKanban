@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import home from "./components/Home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>kanban</h1>
-      </header>
-    </div>
+    <Router>
+          <Route exact path="/" component={home}/>
+          <Route exact path="/login" component={home}/>
+    </Router>
   );
 }
 
