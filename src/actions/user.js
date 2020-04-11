@@ -21,7 +21,6 @@ export const login = user => {
         .then(resp => resp.json())
         .then(data => {
             if(data.error){
-                console.log(data)
                 alert("Invalid Password or Username")
             } else {
                 localStorage.setItem("token", data.token)

@@ -1,17 +1,26 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import { Router, Route } from 'react-router-dom';
+import history from "./actions/history";
 import home from "./containers/Home";
-import dashboard from "./containers/Dashboard"
+import dashboard from "./containers/Dashboard";
+import signUp from "./containers/SignUp";
 
-function App() {
-  return (
-    <Router>
+
+class App extends React.Component {
+
+  render(){
+    return (
+      <div>
+        <Router history={history}>
           <Route exact path="/" component={home}/>
           <Route exact path="/login" component={home}/>
           <Route exact path="/dashboard" component={dashboard} />
-    </Router>
-  );
+          <Route exact path="/signup" component={signUp} />
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
