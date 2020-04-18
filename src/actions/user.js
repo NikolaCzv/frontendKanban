@@ -30,3 +30,25 @@ export const login = user => {
         })
     }
 }
+
+export const checkUser = token => {
+    return function(dispatch){
+        const reqObj = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        }
+
+        fetch("http://localhost:3000/api/v1/current_user", reqObj)
+        .then(resp => resp.json())
+        .then(data => {
+            if(data.error){
+                history.push("/login")
+            } else {
+                dispatch(userLogin(data))
+            }
+        })
+    }
+}

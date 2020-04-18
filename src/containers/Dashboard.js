@@ -1,4 +1,5 @@
 import React from "react";
+import WithAuth from "../components/WithAuth";
 
 class Dashboard extends React.Component {
 
@@ -9,4 +10,4 @@ class Dashboard extends React.Component {
     }
 } 
 
-export default Dashboard
+export default WithAuth(Dashboard)
