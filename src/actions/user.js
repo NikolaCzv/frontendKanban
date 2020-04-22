@@ -7,6 +7,13 @@ const userLogin = user => {
     }
 }
 
+export const logout = () => {
+    return {
+        type: 'LOG_OUT'
+    }
+}
+
+
 export const login = user => {
     return function(dispatch){
         const reqObj = {

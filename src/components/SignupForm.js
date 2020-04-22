@@ -1,7 +1,12 @@
 import React from "react";
-import { Form, Button, Segment, Grid} from "semantic-ui-react";
 import history from "../actions/history";
 import styled from "styled-components";
+import { 
+      Form,
+      Button,
+      Segment,
+      Grid
+    } from "semantic-ui-react";
 
 const Header = styled.div`
     margin: 300px 200px;
