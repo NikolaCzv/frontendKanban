@@ -26,11 +26,12 @@ const RightContent = styled.div`
 `;
 
 const LogoWrapper = styled.div`
-  width: 200px;
+  width: 400px;
 `;
 
 const Logo = styled.h2`
   color: dodgerblue;
+  margin: 20px;
 `
 
 

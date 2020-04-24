@@ -1,6 +1,7 @@
 import React from "react";
 import WithAuth from "../components/WithAuth";
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
+import DashForm from "../components/DashForm";
 
 class Dashboard extends React.Component {
 
@@ -8,7 +9,7 @@ class Dashboard extends React.Component {
         return(
             <div>
                 <Navbar />
-                <h1>Dash</h1>
+                <DashForm />
             </div>
         )
     }
