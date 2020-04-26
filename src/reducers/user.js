@@ -7,7 +7,7 @@ export default function (state = initialState, action) {
       case "USER_LOGIN":
         return {...state, ...action.user}
       case "ADD_NOTE":
-          return {...state, notes: [ ...state.notes, action.note]}
+          return {...state, notes: [...state.notes, action.note]}
       case "LOG_OUT":
         return initialState
       default:

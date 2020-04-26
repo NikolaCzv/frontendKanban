@@ -36,6 +36,9 @@ class DashForm extends React.Component{
                     <Button size="tiny">Add</Button>
                     </Form.Group>
                 </Form>
+                <Button>Move Forward</Button>
+                <Button>Move Backward</Button>
+                <Button>Delete</Button>
             </div>
         )
     }
