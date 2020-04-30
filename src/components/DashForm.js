@@ -7,7 +7,8 @@ class DashForm extends React.Component{
 
     state = {
         content: '',
-        user_id: this.props.user.user.id
+        user_id: this.props.user.user.id,
+        position: 1
     }
 
     handleInput = e => {
@@ -16,23 +17,25 @@ class DashForm extends React.Component{
         })
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
+    handleSubmit = () => {
 
         this.props.addNote(this.state)
+        this.setState({
+            content: ''
+        })
     }
 
     render(){
         return(
             <div className="dashForm">
                 <Form onSubmit={this.handleSubmit}>
-                    <h4>Add Tasks</h4>
                     <Form.Group widths="5">
                     <Form.Input 
                     fluid
                     placeholder='Add Task Here...'
                     name="add"
-                    onChange={this.handleInput}/>
+                    onChange={this.handleInput}
+                    value={this.state.content}/>
                     <Button size="tiny">Add</Button>
                     </Form.Group>
                 </Form>

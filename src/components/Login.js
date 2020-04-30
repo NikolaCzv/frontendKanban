@@ -1,5 +1,11 @@
 import React from "react";
-import { Grid, Button, Form, Segment, Message } from 'semantic-ui-react';
+import { 
+    Grid,
+    Button,
+    Form,
+    Segment,
+    Message
+} from 'semantic-ui-react';
 import { connect } from "react-redux";
 import { login } from "../actions/user";
 
