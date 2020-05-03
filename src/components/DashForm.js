@@ -11,6 +11,14 @@ class DashForm extends React.Component{
         position: 1
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(!prevProps.user.user.id && this.props.user.user.id){
+            this.setState({
+                user_id: this.props.user.user.id
+            })
+        }
+    }
+
     handleInput = e => {
         this.setState({
             content: e.target.value
@@ -20,12 +28,14 @@ class DashForm extends React.Component{
     handleSubmit = () => {
 
         this.props.addNote(this.state)
+        console.log("state", this.state)
         this.setState({
             content: ''
         })
     }
 
     render(){
+        console.log(this.props.user.user.id)
         return(
             <div className="dashForm">
                 <Form onSubmit={this.handleSubmit}>

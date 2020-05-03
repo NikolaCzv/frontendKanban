@@ -3,7 +3,7 @@ import WithAuth from "../components/WithAuth";
 import Navbar from "../components/Navbar";
 import DashForm from "../components/DashForm";
 import CardHolder from "./CardHolder";
-//fix refresh
+import { connect } from "react-redux";
 
 class Dashboard extends React.Component {
 
@@ -16,6 +16,12 @@ class Dashboard extends React.Component {
             </div>
         )
     }
-} 
+}
 
-export default WithAuth(Dashboard)
+const mapStateToProps = state => {
+    return {
+        user: state
+    }
+}
+
+export default connect(mapStateToProps)(WithAuth(Dashboard))
