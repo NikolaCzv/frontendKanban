@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, Button } from "semantic-ui-react";
-import { addNote } from "../actions/note";
+import { addNote, deleteNote } from "../actions/note";
 
 class DashForm extends React.Component{
 
@@ -26,16 +26,18 @@ class DashForm extends React.Component{
     }
 
     handleSubmit = () => {
-
         this.props.addNote(this.state)
-        console.log("state", this.state)
+
         this.setState({
             content: ''
         })
     }
 
+    handleDelete = () => {
+        this.props.deleteNote(this.props.user.user.selected)
+    }
+
     render(){
-        console.log(this.props.user.user.id)
         return(
             <div className="dashForm">
                 <Form onSubmit={this.handleSubmit}>
@@ -46,12 +48,22 @@ class DashForm extends React.Component{
                     name="add"
                     onChange={this.handleInput}
                     value={this.state.content}/>
-                    <Button size="tiny">Add</Button>
+                    {
+                    this.state.content === '' ? 
+                        <Button disabled size="tiny" color="green">Add</Button>
+                        :
+                        <Button size="tiny" color="green">Add</Button>
+                    }
                     </Form.Group>
                 </Form>
-                <Button>Move Forward</Button>
-                <Button>Move Backward</Button>
-                <Button>Delete</Button>
+                <Button color="twitter" size="tiny">Move Forward</Button>
+                <Button color="twitter" size="tiny">Move Backward</Button>
+                {
+                    this.props.user.user.selected.id ? 
+                    <Button color="red" size="tiny" onClick={this.handleDelete}>Delete</Button>
+                        :
+                    <Button color="red" size="tiny" disabled>Delete</Button>
+                }
             </div>
         )
     }
@@ -65,7 +77,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addNote: note => dispatch(addNote(note))
+        addNote: note => dispatch(addNote(note)),
+        deleteNote: note => dispatch(deleteNote(note))
     }
 }
 
