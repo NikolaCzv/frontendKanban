@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Form, Button } from "semantic-ui-react";
 import { addNote, deleteNote } from "../actions/note";
+//move notes need to be done
+//send pathc req to change the position
 
 class DashForm extends React.Component{
 
@@ -37,6 +39,14 @@ class DashForm extends React.Component{
         this.props.deleteNote(this.props.user.user.selected)
     }
 
+    handleForward = () => {
+
+    }
+
+    handleBackward = () => {
+
+    }
+
     render(){
         return(
             <div className="dashForm">
@@ -56,13 +66,38 @@ class DashForm extends React.Component{
                     }
                     </Form.Group>
                 </Form>
-                <Button color="twitter" size="tiny">Move Forward</Button>
-                <Button color="twitter" size="tiny">Move Backward</Button>
-                {
-                    this.props.user.user.selected.id ? 
-                    <Button color="red" size="tiny" onClick={this.handleDelete}>Delete</Button>
+                { this.props.user.user.selected.position >= 1 && this.props.user.user.selected.position <= 5 ?
+                    <Button
+                        color="twitter"
+                        size="tiny"
+                        onClick={this.handleForward}>Move Forward</Button>
                         :
-                    <Button color="red" size="tiny" disabled>Delete</Button>
+                    <Button
+                        color="twitter"
+                        size="tiny"
+                        disabled>Move Forward</Button>
+                }
+                { this.props.user.user.selected.position >= 2 && this.props.user.user.selected.position <= 5 ?
+                    <Button
+                        color="twitter"
+                        size="tiny"
+                        onClick={this.handleBackward}>Move Backward</Button>
+                    :
+                    <Button
+                        color="twitter"
+                        size="tiny"
+                        disabled>Move Backward</Button>
+                }
+                { this.props.user.user.selected.id ? 
+                    <Button
+                        color="red"
+                        size="tiny"
+                        onClick={this.handleDelete}>Delete</Button>
+                        :
+                    <Button
+                        color="red"
+                        size="tiny"
+                        disabled>Delete</Button>
                 }
             </div>
         )
