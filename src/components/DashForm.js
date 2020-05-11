@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, Button } from "semantic-ui-react";
-import { addNote, deleteNote, moveForward } from "../actions/note";
+import { addNote, deleteNote, moveForward, moveBackward } from "../actions/note";
 
 class DashForm extends React.Component{
 
@@ -17,9 +17,6 @@ class DashForm extends React.Component{
                 user_id: this.props.user.user.id
             })
         }
-    }
-
-    componentWillUpdate(){
     }
 
     handleInput = e => {
@@ -45,7 +42,7 @@ class DashForm extends React.Component{
     }
 
     handleBackward = () => {
-
+        this.props.moveBackward(this.props.user.user.selected)
     }
 
     render(){
@@ -115,7 +112,8 @@ const mapDispatchToProps = dispatch => {
     return {
         addNote: note => dispatch(addNote(note)),
         deleteNote: note => dispatch(deleteNote(note)),
-        moveForward: note => dispatch(moveForward(note))
+        moveForward: note => dispatch(moveForward(note)),
+        moveBackward: note => dispatch(moveBackward(note))
     }
 }
 

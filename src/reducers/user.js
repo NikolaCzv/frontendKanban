@@ -16,8 +16,11 @@ export default function (state = initialState, action) {
       case 'DELETE_NOTE': 
         return {...state, notes: state.notes.filter(note => note.id !== action.note), selected: {}}
       case "MOVE_FORWARD":
-        const myNote = state.notes.find(note => note.id === action.note.id)
-        return {...state, selected: action.note, notes: [...state.notes, myNote.position++]}
+        const myNoteForward = state.notes.find(note => note.id === action.note.id)
+        return {...state, selected: action.note, notes: [...state.notes, myNoteForward.position++]}
+      case "MOVE_BACKWARD":
+        const myNoteBack = state.notes.find(note => note.id === action.note.id)
+        return {...state, selected: action.note, notes: [...state.notes, myNoteBack.position--]}
       case "LOG_OUT":
         return initialState
       default:

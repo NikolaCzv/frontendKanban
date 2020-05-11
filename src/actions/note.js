@@ -32,6 +32,13 @@ const moveNoteForward = note => {
     }
 }
 
+const moveNoteBackward = note => {
+    return {
+        type: "MOVE_BACKWARD",
+        note: note
+    }
+}
+
 export const addNote = note => {
     return function(dispatch){
         const reqObj = {
@@ -84,7 +91,33 @@ export const moveForward = note => {
         .then(data => {
             if(data.position >= 1 && data.position <= 5){
             dispatch(moveNoteForward(data))
-            console.log("moved")
+            } else {
+                alert("Something Went Wrong!")
+            }
+        })
+    }
+}
+
+export const moveBackward = note => {
+    return function(dispatch){
+
+        const reqObj = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                content: note.content,
+                user_id: note.user_id,
+                position: note.position - 1
+            })
+        }
+
+        fetch(`http://localhost:3000/api/v1/notes/${note.id}`, reqObj)
+        .then(resp => resp.json())
+        .then(data => {
+            if(data.position >= 1 && data.position <= 5){
+            dispatch(moveNoteBackward(data))
             } else {
                 alert("Something Went Wrong!")
             }
