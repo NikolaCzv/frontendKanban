@@ -1,9 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, Button } from "semantic-ui-react";
-import { addNote, deleteNote } from "../actions/note";
-//move notes need to be done
-//send pathc req to change the position
+import { addNote, deleteNote, moveForward } from "../actions/note";
 
 class DashForm extends React.Component{
 
@@ -19,6 +17,9 @@ class DashForm extends React.Component{
                 user_id: this.props.user.user.id
             })
         }
+    }
+
+    componentWillUpdate(){
     }
 
     handleInput = e => {
@@ -40,7 +41,7 @@ class DashForm extends React.Component{
     }
 
     handleForward = () => {
-
+        this.props.moveForward(this.props.user.user.selected)
     }
 
     handleBackward = () => {
@@ -66,17 +67,6 @@ class DashForm extends React.Component{
                     }
                     </Form.Group>
                 </Form>
-                { this.props.user.user.selected.position >= 1 && this.props.user.user.selected.position <= 5 ?
-                    <Button
-                        color="twitter"
-                        size="tiny"
-                        onClick={this.handleForward}>Move Forward</Button>
-                        :
-                    <Button
-                        color="twitter"
-                        size="tiny"
-                        disabled>Move Forward</Button>
-                }
                 { this.props.user.user.selected.position >= 2 && this.props.user.user.selected.position <= 5 ?
                     <Button
                         color="twitter"
@@ -87,6 +77,17 @@ class DashForm extends React.Component{
                         color="twitter"
                         size="tiny"
                         disabled>Move Backward</Button>
+                }
+                { this.props.user.user.selected.position >= 1 && this.props.user.user.selected.position < 5 ?
+                    <Button
+                        color="twitter"
+                        size="tiny"
+                        onClick={this.handleForward}>Move Forward</Button>
+                        :
+                    <Button
+                        color="twitter"
+                        size="tiny"
+                        disabled>Move Forward</Button>
                 }
                 { this.props.user.user.selected.id ? 
                     <Button
@@ -113,7 +114,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addNote: note => dispatch(addNote(note)),
-        deleteNote: note => dispatch(deleteNote(note))
+        deleteNote: note => dispatch(deleteNote(note)),
+        moveForward: note => dispatch(moveForward(note))
     }
 }
 

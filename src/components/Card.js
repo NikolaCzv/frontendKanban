@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Dimmer, Loader, Icon, Divider } from "semantic-ui-react";
-import { selectMyNote } from "../actions/note"
+import { selectMyNote, unselectNote } from "../actions/note"
 
 class Card extends React.Component {
 
@@ -18,7 +18,14 @@ class Card extends React.Component {
     }
 
     handleSelect = (note) => {
+        if(note.id === this.props.user.user.selected.id){
+            console.log("clicked")
+            this.props.unselectNote()
+        } else {
         this.props.selectMyNote(note)
+        this.setState({
+            selected: note
+        })}
     }
 
     renderNotes = () => {
@@ -66,7 +73,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        selectMyNote: note => dispatch(selectMyNote(note))
+        selectMyNote: note => dispatch(selectMyNote(note)),
+        unselectNote: () => dispatch(unselectNote())
     }
 }
 
