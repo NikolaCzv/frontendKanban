@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import history from "../actions/history";
-import { connect } from "react-redux"
+import { connect } from "react-redux";
 import { logout } from "../actions/user";
 import {
   Icon,

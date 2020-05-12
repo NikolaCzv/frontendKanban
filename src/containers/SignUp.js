@@ -6,7 +6,10 @@ class SignUp extends React.Component {
 
     render(){
         return (
-            <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+            <Grid
+                textAlign='center'
+                style={{ height: '100vh' }}
+                verticalAlign='middle'>
                 <Grid.Column width={3}></Grid.Column>
                 <SignupForm />
                 <Grid.Column width={3}></Grid.Column>

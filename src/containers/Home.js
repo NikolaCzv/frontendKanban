@@ -12,8 +12,15 @@ class Home extends React.Component{
 
     render(){
         return(
-            <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' color="blue">
-                <Grid.Column width={10} style={{height: '102%'}} color="blue">
+            <Grid
+                textAlign='center'
+                style={{ height: '100vh' }}
+                verticalAlign='middle'
+                color="blue">
+                <Grid.Column
+                    width={10}
+                    style={{height: '102%'}}
+                    color="blue">
                     <Header>Welcome to Kanban <Icon name="pen square" /> </Header>
                 </Grid.Column>
                 <Login />

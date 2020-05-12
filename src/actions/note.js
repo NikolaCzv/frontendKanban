@@ -52,7 +52,7 @@ export const addNote = note => {
         fetch("http://localhost:3000/api/v1/notes", reqObj)
         .then(resp => resp.json())
         .then(data => {
-            dispatch(newNote(data))
+            dispatch(newNote(data));
         })
     }
 }
@@ -67,7 +67,7 @@ export const deleteNote = note => {
     return function(dispatch){
         fetch(`http://localhost:3000/api/v1/notes/${note.id}`, { method: "DELETE" })
         .then(resp => resp.json())
-        .then(data => dispatch(removeNote(data)))
+        .then(data => dispatch(removeNote(data)));
     }
 }
 
@@ -90,9 +90,9 @@ export const moveForward = note => {
         .then(resp => resp.json())
         .then(data => {
             if(data.position >= 1 && data.position <= 5){
-            dispatch(moveNoteForward(data))
+            dispatch(moveNoteForward(data));
             } else {
-                alert("Something Went Wrong!")
+                alert("Something Went Wrong!");
             }
         })
     }
@@ -117,9 +117,9 @@ export const moveBackward = note => {
         .then(resp => resp.json())
         .then(data => {
             if(data.position >= 1 && data.position <= 5){
-            dispatch(moveNoteBackward(data))
+            dispatch(moveNoteBackward(data));
             } else {
-                alert("Something Went Wrong!")
+                alert("Something Went Wrong!");
             }
         })
     }

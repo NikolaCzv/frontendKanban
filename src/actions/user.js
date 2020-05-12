@@ -28,11 +28,11 @@ export const login = user => {
         .then(resp => resp.json())
         .then(data => {
             if(data.error){
-                alert("Invalid Password or Username")
+                alert("Invalid Password or Username");
             } else {
-                localStorage.setItem("token", data.token)
-                dispatch(userLogin(data))
-                history.push("/dashboard")
+                localStorage.setItem("token", data.token);
+                dispatch(userLogin(data));
+                history.push("/dashboard");
             }
         })
     }
@@ -52,9 +52,9 @@ export const checkUser = token => {
         .then(resp => resp.json())
         .then(data => {
             if(data.error){
-                history.push("/login")
+                history.push("/login");
             } else {
-                dispatch(userLogin(data))
+                dispatch(userLogin(data));
             }
         })
     }
@@ -74,11 +74,11 @@ export const signUp = user => {
         .then(resp => resp.json())
         .then(data => {
             if(data.error){
-                alert("Invalid Input.")
+                alert("Invalid Input.");
             } else {
-                localStorage.setItem("token", data.token)
-                dispatch(userLogin(user))
-                history.push("/dashboard")
+                localStorage.setItem("token", data.token);
+                dispatch(userLogin(user));
+                history.push("/dashboard");
             }
         })
     }

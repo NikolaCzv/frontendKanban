@@ -1,7 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Dimmer, Loader, Icon, Divider } from "semantic-ui-react";
-import { selectMyNote, unselectNote } from "../actions/note"
+import { 
+    Dimmer,
+    Loader,
+    Icon,
+    Divider } from "semantic-ui-react";
+import { selectMyNote, unselectNote } from "../actions/note";
 
 class Card extends React.Component {
 
@@ -19,10 +23,9 @@ class Card extends React.Component {
 
     handleSelect = (note) => {
         if(note.id === this.props.user.user.selected.id){
-            console.log("clicked")
-            this.props.unselectNote()
+            this.props.unselectNote();
         } else {
-        this.props.selectMyNote(note)
+        this.props.selectMyNote(note);
         this.setState({
             selected: note
         })}

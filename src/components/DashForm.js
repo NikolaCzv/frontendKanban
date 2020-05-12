@@ -1,7 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Form, Button } from "semantic-ui-react";
-import { addNote, deleteNote, moveForward, moveBackward } from "../actions/note";
+import {
+    addNote,
+    deleteNote,
+    moveForward,
+    moveBackward } from "../actions/note";
 
 class DashForm extends React.Component{
 
@@ -22,27 +26,27 @@ class DashForm extends React.Component{
     handleInput = e => {
         this.setState({
             content: e.target.value
-        })
+        });
     }
 
     handleSubmit = () => {
-        this.props.addNote(this.state)
+        this.props.addNote(this.state);
 
         this.setState({
             content: ''
-        })
+        });
     }
 
     handleDelete = () => {
-        this.props.deleteNote(this.props.user.user.selected)
+        this.props.deleteNote(this.props.user.user.selected);
     }
 
     handleForward = () => {
-        this.props.moveForward(this.props.user.user.selected)
+        this.props.moveForward(this.props.user.user.selected);
     }
 
     handleBackward = () => {
-        this.props.moveBackward(this.props.user.user.selected)
+        this.props.moveBackward(this.props.user.user.selected);
     }
 
     render(){

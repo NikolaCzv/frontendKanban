@@ -2,7 +2,7 @@ import React from "react";
 import history from "../actions/history";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { signUp } from "../actions/user"
+import { signUp } from "../actions/user";
 import { 
       Form,
       Button,
@@ -26,11 +26,11 @@ class SignupForm extends React.Component {
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
+    });
   }
 
   handleSubmit = () => {
-    this.props.signUp(this.state)
+    this.props.signUp(this.state);
   }
 
     render(){
