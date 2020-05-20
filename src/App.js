@@ -11,14 +11,12 @@ class App extends React.Component {
 
   render(){
     return (
-      <div>
         <Router history={history}>
           <Route exact path="/" component={home}/>
           <Route exact path="/login" component={home}/>
           <Route exact path="/dashboard" component={dashboard} />
           <Route exact path="/signup" component={signUp} />
         </Router>
-      </div>
     );
   }
 }

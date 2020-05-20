@@ -6,6 +6,17 @@ import {
     Icon,
     Divider } from "semantic-ui-react";
 import { selectMyNote, unselectNote } from "../actions/note";
+import styled from "styled-components"
+
+const Container = styled.div`
+    flex: 1;
+    border-radius: 15px;
+    border: 1px solid rgb(182, 187, 189);
+    padding: 20px;
+    max-width: 270px;
+    height: 500px;
+    overflow: auto;
+`
 
 class Card extends React.Component {
 
@@ -58,12 +69,12 @@ class Card extends React.Component {
             </div>)
         }
         return(
-            <div className="card">
+            <Container>
                 <h3 className="cardHeader">
                     <Icon name="pencil alternate" color="blue"/> {this.props.title} </h3>
                 <Divider hidden />
                 {this.renderNotes()}
-            </div>
+            </Container>
         )
     }
 }

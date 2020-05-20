@@ -1,6 +1,14 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
 import Card from "../components/Card";
+import styled from "styled-components"
+
+const Container = styled.div`
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    `
 
 class CardHolder extends React.Component{
     state = {
@@ -13,35 +21,23 @@ class CardHolder extends React.Component{
 
     render(){
         return (
-        <div className="cardHolder">
-            <Grid>
-                <Grid.Column width={3}>
+            <Container>
                     <Card 
                         title={this.state.first.title}
                         position={this.state.first.position}/>
-                </Grid.Column>
-                <Grid.Column width={3}>
                     <Card 
                         title={this.state.second.title}
                         position={this.state.second.position}/>  
-                </Grid.Column>
-                <Grid.Column width={3}>
                     <Card 
                         title={this.state.third.title}
                         position={this.state.third.position}/>
-                </Grid.Column>
-                <Grid.Column width={3}>
                     <Card 
                         title={this.state.forth.title}
                         position={this.state.forth.position}/>
-                </Grid.Column>
-                <Grid.Column width={3}>
                     <Card
                         title={this.state.fifth.title}
                         position={this.state.fifth.position}/>
-                </Grid.Column>
-            </Grid>
-        </div>
+            </Container>
     )}
 }
 
