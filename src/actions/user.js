@@ -24,7 +24,7 @@ export const login = user => {
             body: JSON.stringify(user)
         }
 
-        fetch("http://localhost:3000/api/v1/login", reqObj)
+        fetch("https://dry-fjord-90208.herokuapp.com/api/v1/login", reqObj)
         .then(resp => resp.json())
         .then(data => {
             if(data.error){
@@ -48,7 +48,7 @@ export const checkUser = token => {
             }
         }
 
-        fetch("http://localhost:3000/api/v1/current_user", reqObj)
+        fetch("https://dry-fjord-90208.herokuapp.com/api/v1/current_user", reqObj)
         .then(resp => resp.json())
         .then(data => {
             if(data.error){
@@ -70,7 +70,7 @@ export const signUp = user => {
             body: JSON.stringify(user)
         }
 
-        fetch("http://localhost:3000/api/v1/signup", reqObj)
+        fetch("https://dry-fjord-90208.herokuapp.com/api/v1/signup", reqObj)
         .then(resp => resp.json())
         .then(data => {
             if(data.error){
