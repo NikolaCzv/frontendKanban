@@ -10,7 +10,7 @@ import {
       Grid
     } from "semantic-ui-react";
 
-const Header = styled.div`
+const Container = styled.div`
     margin: 300px 200px;
 `
 
@@ -35,12 +35,7 @@ class SignupForm extends React.Component {
 
     render(){
         return (
-          <Grid.Column
-            width={10}
-            textAlign='center'
-            style={{ height: '100vh'}}
-            color="blue">
-            <Header>
+          <Container>
             <Form
               size="large"
               style={{ maxWidth: 650 }}
@@ -78,12 +73,11 @@ class SignupForm extends React.Component {
                     name="password_confirmation"
                     onChange={this.handleChange}/>
                 </Form.Field>
-                <Button type='submit' color="twitter" >Submit</Button>
+                <Button type='submit' color="twitter" >Confirm</Button>
                 <Button onClick={() => history.push("/")}>Back to Home</Button>
               </Segment>
           </Form>
-          </Header>
-        </Grid.Column>
+        </Container>
         )
     }
 }
