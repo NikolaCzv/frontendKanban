@@ -6,8 +6,7 @@ import { signUp } from "../actions/user";
 import { 
       Form,
       Button,
-      Segment,
-      Grid
+      Segment
     } from "semantic-ui-react";
 
 const Container = styled.div`

@@ -49,7 +49,7 @@ export const addNote = note => {
             body: JSON.stringify(note)
         }
 
-        fetch("https://dry-fjord-90208.herokuapp.com/api/v1/notes", reqObj)
+        fetch("https://still-bayou-02941.herokuapp.com/api/v1/notes", reqObj)
         .then(resp => resp.json())
         .then(data => {
             dispatch(newNote(data));
@@ -65,7 +65,7 @@ export const selectMyNote = note => {
 
 export const deleteNote = note => {
     return function(dispatch){
-        fetch(`https://dry-fjord-90208.herokuapp.com/api/v1/notes/${note.id}`, { method: "DELETE" })
+        fetch(`https://still-bayou-02941.herokuapp.com/api/v1/notes/${note.id}`, { method: "DELETE" })
         .then(resp => resp.json())
         .then(data => dispatch(removeNote(data)));
     }
@@ -86,7 +86,7 @@ export const moveForward = note => {
             })
         }
 
-        fetch(`https://dry-fjord-90208.herokuapp.com/api/v1/notes/${note.id}`, reqObj)
+        fetch(`https://still-bayou-02941.herokuapp.com/api/v1/notes/${note.id}`, reqObj)
         .then(resp => resp.json())
         .then(data => {
             if(data.position >= 1 && data.position <= 5){
@@ -113,7 +113,7 @@ export const moveBackward = note => {
             })
         }
 
-        fetch(`https://dry-fjord-90208.herokuapp.com/api/v1/notes/${note.id}`, reqObj)
+        fetch(`https://still-bayou-02941.herokuapp.com/api/v1/notes/${note.id}`, reqObj)
         .then(resp => resp.json())
         .then(data => {
             if(data.position >= 1 && data.position <= 5){
