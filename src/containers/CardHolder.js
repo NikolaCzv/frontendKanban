@@ -1,13 +1,18 @@
 import React from "react";
-import { Grid } from "semantic-ui-react";
 import Card from "../components/Card";
-import styled from "styled-components"
+import { Divider } from "semantic-ui-react"
+import styled from "styled-components";
 
 const Container = styled.div`
     width: 100%;
     padding: 25px;
     display: flex;
     justify-content: space-between;
+    @media (max-width: 768px) {
+        height: 320vh;
+        display: block;
+        align-items: center;
+      }
     `
 
 class CardHolder extends React.Component{
@@ -25,15 +30,19 @@ class CardHolder extends React.Component{
                     <Card 
                         title={this.state.first.title}
                         position={this.state.first.position}/>
+                        <Divider hidden />
                     <Card 
                         title={this.state.second.title}
                         position={this.state.second.position}/>  
+                        <Divider hidden />
                     <Card 
                         title={this.state.third.title}
                         position={this.state.third.position}/>
+                        <Divider hidden />
                     <Card 
                         title={this.state.forth.title}
                         position={this.state.forth.position}/>
+                        <Divider hidden />
                     <Card
                         title={this.state.fifth.title}
                         position={this.state.fifth.position}/>

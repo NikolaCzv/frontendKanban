@@ -20,6 +20,7 @@
 
 .dashForm {
   margin: 20px;
+  display: inline;
 }
 
 @keyframes App-logo-spin {
@@ -58,4 +59,10 @@
 
 .div{
   margin-top: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+  .buttons{
+    margin-top: 5px;
+  }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import SignupForm from "../components/SignupForm";
-import { Grid } from "semantic-ui-react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -10,6 +9,10 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: 768px) {
+        height: 100vh;
+        overflow: hidden;
+      }
 `
 
 class SignUp extends React.Component {

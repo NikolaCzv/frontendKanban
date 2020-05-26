@@ -6,7 +6,7 @@ import {
     Icon,
     Divider } from "semantic-ui-react";
 import { selectMyNote, unselectNote } from "../actions/note";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const Container = styled.div`
     flex: 1;
@@ -16,10 +16,13 @@ const Container = styled.div`
     max-width: 270px;
     height: 500px;
     overflow: auto;
+    @media (max-width: 768px){
+        margin-left: 30px;
+    }
 `
 
 class Card extends React.Component {
-
+    
     state = {
         loading: true
     }

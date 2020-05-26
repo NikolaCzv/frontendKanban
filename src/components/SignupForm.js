@@ -10,7 +10,9 @@ import {
     } from "semantic-ui-react";
 
 const Container = styled.div`
-    margin: 300px 200px;
+    display: flex;
+    align-items: center;
+    height: 100vh;
 `
 
 class SignupForm extends React.Component {
@@ -36,9 +38,6 @@ class SignupForm extends React.Component {
         return (
           <Container>
             <Form
-              size="large"
-              style={{ maxWidth: 650 }}
-              verticalAlign='middle'
               onSubmit={this.handleSubmit}>
               <Segment stacked>
                 <Form.Field fluid>

@@ -5,7 +5,8 @@ import {
     addNote,
     deleteNote,
     moveForward,
-    moveBackward } from "../actions/note";
+    moveBackward
+} from "../actions/note";
 
 class DashForm extends React.Component{
 
@@ -59,7 +60,8 @@ class DashForm extends React.Component{
                     placeholder='Add Task Here...'
                     name="add"
                     onChange={this.handleInput}
-                    value={this.state.content}/>
+                    value={this.state.content}
+                    />
                     {
                     this.state.content === '' ? 
                         <Button disabled size="tiny" color="green">Add</Button>
@@ -68,6 +70,7 @@ class DashForm extends React.Component{
                     }
                     </Form.Group>
                 </Form>
+                <div className="buttons">
                 { this.props.user.user.selected.position >= 2 && this.props.user.user.selected.position <= 5 ?
                     <Button
                         color="twitter"
@@ -101,6 +104,7 @@ class DashForm extends React.Component{
                         size="tiny"
                         disabled>Delete</Button>
                 }
+                </div>
             </div>
         )
     }
