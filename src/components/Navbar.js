@@ -13,9 +13,9 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   justify-content: space-between;
-  -webkit-box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.75);
-  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.75);
   margin-bottom: 25px;
 `;
 

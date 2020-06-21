@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../components/Card";
+import Card from "./Card";
 import { Divider } from "semantic-ui-react"
 import styled from "styled-components";
 

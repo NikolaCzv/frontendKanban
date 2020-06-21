@@ -2,7 +2,7 @@ import React from "react";
 import WithAuth from "../components/WithAuth";
 import Navbar from "../components/Navbar";
 import DashForm from "../components/DashForm";
-import CardHolder from "./CardHolder";
+import CardHolder from "../components/CardHolder";
 import { connect } from "react-redux";
 
 class Dashboard extends React.Component {
